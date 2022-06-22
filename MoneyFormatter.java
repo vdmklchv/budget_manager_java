@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class MoneyFormatter {
     static String format(double digit) {
-        DecimalFormat df = new DecimalFormat("#,###,###,###.00", new DecimalFormatSymbols(Locale.US));
+        DecimalFormat df = new DecimalFormat("#,###,###,##0.00", new DecimalFormatSymbols(Locale.US));
         return df.format(digit);
     }
 }

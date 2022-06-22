@@ -9,24 +9,58 @@ public class Screen {
         }
     }
 
-    Map<String, String> getMapOfPurchases() {
-        Scanner sc = new Scanner(System.in);
-        Map<String, String> purchaseMap = new LinkedHashMap<>();
-
-        while (sc.hasNextLine()) {
-            String entry = sc.nextLine();
-            String[] entryAsArray = entry.split(" ");
-            String priceAsString = entryAsArray[entryAsArray.length - 1];
-            String productName = String.join(" ", Arrays.copyOfRange(entryAsArray, 0, entryAsArray.length - 1));
-            if (!"".equals(priceAsString) && !"".equals(productName)) {
-                purchaseMap.put(productName, priceAsString);
-            }
-        }
-
-        return purchaseMap;
-    }
-
     void printTotal(double total) {
         System.out.printf("Total: $%s", MoneyFormatter.format(total));
+    }
+
+    int getMenuEntry() {
+        return obtainInteger();
+    }
+
+    private int obtainInteger() {
+        Scanner scanner = new Scanner(System.in);
+        int number = -1;
+        while (number < 0) {
+            try {
+                number = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Please provide a number");
+            }
+        }
+        return number;
+    }
+
+    private double obtainDouble() {
+        Scanner scanner = new Scanner(System.in);
+        double number = -1;
+        while (number < 0) {
+            try {
+                number = Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Please provide a number");
+            }
+        }
+        return number;
+    }
+
+    double getIncome() {
+        System.out.println("Enter income:");
+        return obtainDouble();
+    }
+
+    String getPurchaseName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter purchase name:");
+        return scanner.nextLine();
+    }
+
+    double getPurchaseCost() {
+        System.out.println("Enter its price:");
+        return obtainDouble();
+    }
+
+    void showBalance(double balance) {
+        System.out.printf("Balance: $%s\n", MoneyFormatter.format(balance));
+        System.out.println();
     }
 }

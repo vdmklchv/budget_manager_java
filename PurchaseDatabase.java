@@ -12,6 +12,8 @@ public class PurchaseDatabase {
 
     void add(Purchase purchase) {
         purchases.add(purchase);
+        System.out.println("Purchase was added!");
+        System.out.println();
     }
 
 }

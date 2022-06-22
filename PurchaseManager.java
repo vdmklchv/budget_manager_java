@@ -1,7 +1,6 @@
 package budget;
 
 import java.util.List;
-import java.util.Map;
 
 public class PurchaseManager {
     PurchaseDatabase purchaseDatabase = new PurchaseDatabase();
@@ -9,7 +8,14 @@ public class PurchaseManager {
     // print purchases
     void printPurchases(Screen screen) {
         List<Purchase> purchases = purchaseDatabase.getPurchases();
-        screen.printPurchases(purchases);
+        if (purchases.size() > 0) {
+            screen.printPurchases(purchases);
+            System.out.println();
+        } else {
+            System.out.println("The purchase list is empty");
+            System.out.println();
+        }
+
     }
 
     private double getTotal() {
@@ -23,20 +29,19 @@ public class PurchaseManager {
         return total;
     }
 
-    void addPurchases(Screen screen) {
+    Purchase addPurchase(Screen screen) {
         PurchaseFactory purchaseFactory = new PurchaseFactory();
-        Map<String, String> purchases = screen.getMapOfPurchases();
-        for (Map.Entry<String, String> entry: purchases.entrySet()) {
-            String purchaseName = entry.getKey();
-            String priceAsString = entry.getValue();
-            Purchase purchase = purchaseFactory.create(purchaseName, priceAsString);
-            purchaseDatabase.add(purchase);
-        }
+        String purchaseName = screen.getPurchaseName();
+        double purchaseCost = screen.getPurchaseCost();
+        Purchase purchase = purchaseFactory.create(purchaseName, purchaseCost);
+        purchaseDatabase.add(purchase);
+        return purchase;
     }
 
     void printTotal(Screen screen) {
         double total = getTotal();
         screen.printTotal(total);
+        System.out.println();
     }
 
 }
