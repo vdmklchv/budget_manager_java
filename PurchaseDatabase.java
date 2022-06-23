@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import budget.Enums.*;
 
 public class PurchaseDatabase {
-    private List<Purchase> purchases = new ArrayList<>();
+    private final List<Purchase> purchases = new ArrayList<>();
 
     public List<Purchase> getPurchases() {
         return purchases;
@@ -25,4 +25,7 @@ public class PurchaseDatabase {
         return this.purchases.stream().filter(purchase -> purchase.getCategory() == category).collect(Collectors.toList());
     }
 
+    void setPurchases(List<Purchase> restoredPurchases) {
+        this.purchases.addAll(restoredPurchases);
+    }
 }

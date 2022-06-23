@@ -11,6 +11,10 @@ public class Wallet {
         return balance;
     }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     void addIncome(double sum) {
         this.balance += sum;
         System.out.println("Income was added!");

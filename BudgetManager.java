@@ -11,6 +11,7 @@ public class BudgetManager {
 
     Wallet wallet = new Wallet();
 
+
     void start() {
         mainMenu.initialize();
         while (isAppOn()) {
@@ -37,7 +38,7 @@ public class BudgetManager {
                 final int EXIT_PURCHASE_MENU = 5;
                 PurchaseCategoriesMenu purchaseCategoriesMenu = new PurchaseCategoriesMenu();
                 purchaseCategoriesMenu.initialize();
-                int purchaseCategoriesMenuChoice = 0;
+                int purchaseCategoriesMenuChoice;
                 while (true) {
                     purchaseCategoriesMenu.showMenuTitle("Choose the type of purchase:");
                     purchaseCategoriesMenu.show(purchaseCategoriesMenu.getPurchaseCategoriesMenu());
@@ -67,7 +68,7 @@ public class BudgetManager {
                 final int EXIT_SHOW_MENU = 6;
                 ShowCategoryMenu showCategoryMenu = new ShowCategoryMenu();
                 showCategoryMenu.initialize();
-                int showPurchaseCategoriesMenuChoice = 0;
+                int showPurchaseCategoriesMenuChoice;
                 while (true) {
                     showCategoryMenu.showMenuTitle("Choose the type of purchases:");
                     showCategoryMenu.show(showCategoryMenu.getShowCategoryMenu());
@@ -86,6 +87,12 @@ public class BudgetManager {
                 break;
             case 4:
                 screen.showBalance(wallet.getBalance());
+                break;
+            case 5:
+                purchaseManager.savePurchases(wallet);
+                break;
+            case 6:
+                purchaseManager.loadPurchases(wallet);
                 break;
             case 0:
                 changeAppState();

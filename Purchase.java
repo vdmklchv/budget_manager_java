@@ -18,6 +18,10 @@ public class Purchase {
         return category;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public double getPrice() {
         return price;
     }

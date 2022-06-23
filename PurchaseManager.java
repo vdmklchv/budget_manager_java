@@ -5,6 +5,7 @@ import budget.Enums.*;
 
 public class PurchaseManager {
     PurchaseDatabase purchaseDatabase = new PurchaseDatabase();
+    BackupManager backupManager = new BackupManager();
 
     // print purchases
     void printPurchases(Screen screen, int menuChoice) {
@@ -90,6 +91,15 @@ public class PurchaseManager {
                 return null;
         }
 
+    }
+
+    void savePurchases(Wallet wallet) {
+        backupManager.backup(purchaseDatabase.getPurchases(), wallet);
+    }
+
+    void loadPurchases(Wallet wallet) {
+        List<Purchase> restoredPurchases = backupManager.restore(wallet);
+        purchaseDatabase.setPurchases(restoredPurchases);
     }
 
     public boolean isEmptyPurchaseList() {

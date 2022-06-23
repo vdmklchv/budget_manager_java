@@ -15,6 +15,8 @@ public class MainMenu extends Menu {
         menuEntries.put(2, "Add purchase");
         menuEntries.put(3, "Show list of purchases");
         menuEntries.put(4, "Balance");
+        menuEntries.put(5, "Save");
+        menuEntries.put(6, "Load");
         menuEntries.put(0, "Exit");
     }
 
