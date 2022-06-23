@@ -1,6 +1,7 @@
 package budget;
 
 import java.util.*;
+import budget.Enums.*;
 
 public class Screen {
     void printPurchases(List<Purchase> purchases) {
@@ -10,7 +11,7 @@ public class Screen {
     }
 
     void printTotal(double total) {
-        System.out.printf("Total: $%s", MoneyFormatter.format(total));
+        System.out.printf("Total sum: $%s", MoneyFormatter.format(total));
     }
 
     int getMenuEntry() {
@@ -62,5 +63,9 @@ public class Screen {
     void showBalance(double balance) {
         System.out.printf("Balance: $%s\n", MoneyFormatter.format(balance));
         System.out.println();
+    }
+
+    int getPurchaseCategoryNumber() {
+        return obtainInteger();
     }
 }
