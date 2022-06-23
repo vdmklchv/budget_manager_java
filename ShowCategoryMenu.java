@@ -6,8 +6,14 @@ import java.util.Map;
 public class ShowCategoryMenu extends Menu {
 
     Map<Integer, String> showCategoryMenu = new LinkedHashMap<>();
+    private String name = "show_purchases";
 
-    public Map<Integer, String> getShowCategoryMenu() {
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public Map<Integer, String> getMenu() {
         return showCategoryMenu;
     }
 

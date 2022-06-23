@@ -7,6 +7,8 @@ abstract class Menu {
 
     abstract void initialize();
 
+    abstract Map<Integer, String> getMenu();
+
     void showMenuTitle(String title) {
         System.out.println(title);
     }
@@ -20,4 +22,6 @@ abstract class Menu {
     boolean exists(Map<Integer, String> menuEntries, int number) {
         return menuEntries.containsKey(number);
     }
+
+    abstract String getName();
 }

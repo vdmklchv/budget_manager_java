@@ -4,9 +4,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class PurchaseCategoriesMenu extends Menu {
-    Map<Integer, String> purchaseCategoriesMenu = new LinkedHashMap<>();
+    private Map<Integer, String> purchaseCategoriesMenu = new LinkedHashMap<>();
+    private String name = "purchase";
 
-    public Map<Integer, String> getPurchaseCategoriesMenu() {
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public Map<Integer, String> getMenu() {
         return purchaseCategoriesMenu;
     }
 

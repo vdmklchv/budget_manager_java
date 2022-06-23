@@ -5,8 +5,13 @@ import java.util.Map;
 
 public class MainMenu extends Menu {
     private Map<Integer, String> menuEntries = new LinkedHashMap<>();
+    private String name = "main";
 
-    public Map<Integer, String> getMenuEntries() {
+    public String getName() {
+        return name;
+    }
+
+    public Map<Integer, String> getMenu() {
         return menuEntries;
     }
 
