@@ -4,11 +4,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MainMenu extends Menu {
-    private Map<Integer, String> menuEntries = new LinkedHashMap<>();
-    private String name = "main";
+    private final Map<Integer, String> menuEntries = new LinkedHashMap<>();
 
     public String getName() {
-        return name;
+        return "main";
     }
 
     public Map<Integer, String> getMenu() {

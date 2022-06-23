@@ -4,12 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class PurchaseCategoriesMenu extends Menu {
-    private Map<Integer, String> purchaseCategoriesMenu = new LinkedHashMap<>();
-    private String name = "purchase";
+    private final Map<Integer, String> purchaseCategoriesMenu = new LinkedHashMap<>();
 
     @Override
     public String getName() {
-        return name;
+        return "purchase";
     }
 
     public Map<Integer, String> getMenu() {

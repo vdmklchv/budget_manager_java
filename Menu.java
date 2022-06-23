@@ -1,6 +1,5 @@
 package budget;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 abstract class Menu {

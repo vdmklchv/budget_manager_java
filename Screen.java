@@ -1,7 +1,6 @@
 package budget;
 
 import java.util.*;
-import budget.Enums.*;
 
 public class Screen {
     void printPurchases(List<Purchase> purchases) {
@@ -12,10 +11,6 @@ public class Screen {
 
     void printTotal(double total) {
         System.out.printf("Total sum: $%s", MoneyFormatter.format(total));
-    }
-
-    int getMenuEntry() {
-        return obtainInteger();
     }
 
     private int obtainInteger() {
