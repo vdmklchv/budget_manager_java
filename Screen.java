@@ -3,9 +3,9 @@ package budget;
 import java.util.*;
 
 public class Screen {
-    void printPurchases(List<Purchase> purchases) {
-        for (Purchase purchase: purchases) {
-            System.out.println(purchase.toString());
+    void printEntries(List<Entry> entries) {
+        for (Entry entry: entries) {
+            System.out.println(entry.toString());
         }
     }
 
@@ -13,7 +13,7 @@ public class Screen {
         System.out.printf("Total sum: $%s", MoneyFormatter.format(total));
     }
 
-    private int obtainInteger() {
+    int obtainInteger() {
         Scanner scanner = new Scanner(System.in);
         int number = -1;
         while (number < 0) {

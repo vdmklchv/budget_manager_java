@@ -11,7 +11,7 @@ import budget.Enums.*;
 class BackupManager {
     private final String BACKUP_FILE = "purchases.txt";
     File file = new File(BACKUP_FILE);
-    void backup(List<Purchase> purchases, Wallet wallet) {
+    void backup(List<Entry> purchases, Wallet wallet) {
         double balance = wallet.getBalance();
         try (FileWriter fw = new FileWriter(file)) {
             fw.write(balance + "\n");

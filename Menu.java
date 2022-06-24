@@ -4,7 +4,7 @@ import java.util.Map;
 
 abstract class Menu {
 
-    abstract void initialize();
+    abstract void initialize(boolean forSorting);
 
     abstract Map<Integer, String> getMenu();
 

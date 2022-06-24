@@ -15,7 +15,7 @@ public class PurchaseCategoriesMenu extends Menu {
         return purchaseCategoriesMenu;
     }
 
-    public void initialize() {
+    public void initialize(boolean forSorting) {
         purchaseCategoriesMenu.put(1, "Food");
         purchaseCategoriesMenu.put(2, "Clothes");
         purchaseCategoriesMenu.put(3, "Entertainment");

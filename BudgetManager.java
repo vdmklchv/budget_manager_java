@@ -13,7 +13,7 @@ public class BudgetManager {
 
 
     void start() {
-        mainMenu.initialize();
+        mainMenu.initialize(false);
         while (isAppOn()) {
             runMenu(mainMenu, "Choose your action:", screen, 0);
         }
@@ -27,7 +27,7 @@ public class BudgetManager {
             case 2:
                 final int EXIT_PURCHASE_MENU = 5;
                 PurchaseCategoriesMenu purchaseCategoriesMenu = new PurchaseCategoriesMenu();
-                purchaseCategoriesMenu.initialize();
+                purchaseCategoriesMenu.initialize(false);
                 runMenu(purchaseCategoriesMenu, "Choose the type of purchase: ", screen, EXIT_PURCHASE_MENU);
                 break;
             case 3:
@@ -38,8 +38,8 @@ public class BudgetManager {
                 }
                 final int EXIT_SHOW_MENU = 6;
                 ShowCategoryMenu showCategoryMenu = new ShowCategoryMenu();
-                showCategoryMenu.initialize();
-                runMenu(showCategoryMenu, "Choose the type of purchases:", screen, EXIT_SHOW_MENU);
+                showCategoryMenu.initialize(false);
+                runMenu(showCategoryMenu, "Choose the type of purchase:", screen, EXIT_SHOW_MENU);
                 break;
             case 4:
                 screen.showBalance(wallet.getBalance());
@@ -49,6 +49,12 @@ public class BudgetManager {
                 break;
             case 6:
                 purchaseManager.loadPurchases(wallet);
+                break;
+            case 7:
+                final int EXIT_SORTING_MENU = 4;
+                SortingMenu sortingMenu = new SortingMenu();
+                sortingMenu.initialize(true);
+                runMenu(sortingMenu, "How do you want to sort?", screen, EXIT_SORTING_MENU);
                 break;
             case 0:
                 changeAppState();
@@ -100,12 +106,14 @@ public class BudgetManager {
                 case "show_purchases":
                     purchaseManager.printPurchases(screen, choice);
                     break;
+                case "sorting_menu":
+                    purchaseManager.sort(screen, choice);
+                    break;
                 default:
                     System.out.println("Unknown menu");
                     break;
             }
-
-
+            System.out.println();
         }
     }
 }
